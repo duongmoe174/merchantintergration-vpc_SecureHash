@@ -1,0 +1,15 @@
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\bin\Debug\net6.0\CSharp.exe
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\bin\Debug\net6.0\CSharp.deps.json
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\bin\Debug\net6.0\CSharp.runtimeconfig.json
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\bin\Debug\net6.0\CSharp.dll
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\bin\Debug\net6.0\CSharp.pdb
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.csproj.AssemblyReference.cache
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.GeneratedMSBuildEditorConfig.editorconfig
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.AssemblyInfoInputs.cache
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.AssemblyInfo.cs
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.csproj.CoreCompileInputs.cache
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.dll
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\refint\CSharp.dll
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.pdb
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\CSharp.genruntimeconfig.cache
+E:\Merchant Implementation\vpc_SecureHash\language\CSharp\obj\Debug\net6.0\ref\CSharp.dll

@@ -1,0 +1,8 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": null
+    },
+    "[php]": {
+        "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+    }
+}
