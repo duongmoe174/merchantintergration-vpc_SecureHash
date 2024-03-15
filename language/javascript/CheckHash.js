@@ -1,5 +1,5 @@
 const CryptoJS = require("crypto-js");
-let MERCHANT_HASH_CODE = "6D0870CDE5F24F34F3915FB0045120DB";
+let MERCHANT_HASH_CODE = "EB1B7F75EBB2FAABD6763FC37A3628AF";
 const axios = require("axios");
 const https = require("https");
 const BASE_URL = "https://mtf.onepay.vn/paygate/vpcpay.op";
@@ -50,13 +50,13 @@ function merchantSendRequestDynamic() {
     vpc_Version: "2",
     vpc_Currency: "VND",
     vpc_Command: "pay",
-    vpc_AccessCode: "6BEB2546",
-    vpc_Merchant: "TESTONEPAY",
+    vpc_AccessCode: "D51C5CD6",
+    vpc_Merchant: "TESTTRAGOP",
     vpc_Locale: "vn",
     vpc_ReturnURL: "https://dev.onepay.vn/client/qt/dr/?id=1&mode=TEST_PAYGATE",
     vpc_MerchTxnRef: vpcMerTxnRef,
     vpc_OrderInfo: "Ma Don Hang",
-    vpc_Amount: "10000000",
+    vpc_Amount: "1000000000",
     vpc_TicketNo: "192.168.166.149",
     vpc_CardList: "VC",
     AgainLink: "https://mtf.onepay.vn/client/qt/",
@@ -69,6 +69,7 @@ function merchantSendRequestDynamic() {
   let stringToHash = generateStringToHash(sortedParam);
   let secureHash = genSecureHash(stringToHash, MERCHANT_HASH_CODE);
   merchantParam["vpc_SecureHash"] = secureHash;
+  console.log("StringToHash: " + stringToHash);
   return merchantParam;
 }
 
@@ -143,6 +144,7 @@ async function makeRequest() {
 function makeRequest2() {
   const param = merchantSendRequestDynamic();
   let url = `${BASE_URL}?${new URLSearchParams(param)}`;
+  console.log("URL: " + url);
   https
     .get(url, (response) => {
       let data = "";

@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "8HX9tLLWcol8+TlD4c6N9ZAeSAnxNtMohw8f0rBEXUBBrgyyAvgj3xDCWsX2nENgHdQJAhObukz6goV3GQsxLw==",
+  "dgSpecHash": "RWLJIWOH2oHqSgerxufknRqda5AZlTB28GS1Dqx3A35Sl/iHg3TUHrloFF8cgq+H1+pTyRJ80FqxQIIcFhXx9g==",
   "success": true,
   "projectFilePath": "E:\\MerchantImplementation\\vpc_SecureHash\\language\\CSharp\\CSharp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\duongtd\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\duongtd\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\duongtd\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\duongtd\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
+  ],
   "logs": []
 }
