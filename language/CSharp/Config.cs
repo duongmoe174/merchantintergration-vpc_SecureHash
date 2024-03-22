@@ -10,5 +10,7 @@ namespace AppConfig
         public static readonly string MERCHANT_INSTALLMENT_HASH_CODE = "EB1B7F75EBB2FAABD6763FC37A3628AF";
         public static readonly string BASE_URL = "https://mtf.onepay.vn";
         public static readonly string URL_PREFIX = "/paygate/vpcpay.op?";
+
+        public static readonly string HOST = "mtf.onepay.vn";
     }
 }

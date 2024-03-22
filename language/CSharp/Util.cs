@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Net.Http;
 using System.Net;
+
 namespace AppUtil
 {
     class Util
@@ -121,6 +122,77 @@ namespace AppUtil
                     Console.WriteLine($"Exception: {ex.Message}");
                 }
             }
+        }
+
+        public static string CreateRequestSignatureITA(string method, string uri, List<string> signedHeaderNames, Dictionary<string, string> httpHeaders, string merchantId, string merchantHashCode)
+        {
+            long created = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            Dictionary<string, string> lowercaseHeaders = new Dictionary<string, string>();
+
+            foreach (var kvp in httpHeaders)
+            {
+                lowercaseHeaders[kvp.Key.ToLower()] = kvp.Value;
+            }
+
+            lowercaseHeaders["(request-target)"] = method.ToLower() + " " + uri;
+            lowercaseHeaders["(created)"] = created.ToString();
+
+            StringBuilder signingString = new StringBuilder();
+
+            string headerNames = "";
+            foreach (var element in signedHeaderNames)
+            {
+                string headerName = element;
+                if (!lowercaseHeaders.ContainsKey(headerName))
+                {
+                    throw new Exception(headerName);
+                }
+                if (signingString.Length != 0)
+                {
+                    signingString.Append("\n");
+                }
+                signingString.Append(headerName + ": " + lowercaseHeaders[headerName]);
+
+                if (headerNames != "")
+                {
+                    headerNames += " ";
+                }
+                headerNames += headerName;
+            }
+
+            Console.WriteLine("signingString=" + signingString);
+
+            byte[] hmacKey = HexToBytes(merchantHashCode);
+            byte[] signatureBytes;
+
+            using (HMACSHA512 hmac = new HMACSHA512(hmacKey))
+            {
+                byte[] data = Encoding.UTF8.GetBytes(signingString.ToString());
+                signatureBytes = hmac.ComputeHash(data);
+            }
+
+            string signature = Convert.ToBase64String(signatureBytes);
+            string signingAlgorithm = "hs2019";
+
+            return $"algorithm=\"{signingAlgorithm}\", keyId=\"{merchantId}\", headers=\"{headerNames}\", created={created}, signature=\"{signature}\"";
+        }
+
+        public static void ExcuteGetMethodWithHeaders(string url, Dictionary<string, string> headerRequest)
+        {
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            foreach (var items in headerRequest)
+            {
+                string key = items.Key;
+                string value = items.Value;
+                request.Headers.Add(key, value);
+            }
+            request.Method = "GET";
+            using var webResponse = request.GetResponse();
+            var responseStream = webResponse.GetResponseStream();
+            var reader = new StreamReader(responseStream);
+            string responseBody = reader.ReadToEnd();
+            Console.WriteLine("ResponseBody: ");
+            Console.WriteLine(responseBody);
         }
     }
 }

@@ -88,5 +88,30 @@ namespace AppCreateInvoiceInstallment
             var requestsUrl = Config.BASE_URL + Config.URL_PREFIX + queryParam;
             Util.ExcuteGetMethod(requestsUrl);
         }
+
+        public static void GetInstallment(string amount, string merchantId, string merchantHashCode)
+        {
+            List<string> signedHeaderNames = new List<string>();
+            signedHeaderNames.Add("(request-target)");
+            signedHeaderNames.Add("(created)");
+            signedHeaderNames.Add("host");
+            signedHeaderNames.Add("accept");
+            string accept = "";
+            string uriPath = "/msp/api/v1/merchants/" + merchantId + "/installments?amount=" + amount;
+            Dictionary<string, string> headerSign = new Dictionary<string, string>();
+            headerSign.Add("Host", Config.HOST);
+            headerSign.Add("Accept", accept);
+            string method = "GET";
+            string signature = Util.CreateRequestSignatureITA(method, uriPath, signedHeaderNames, headerSign, merchantId, merchantHashCode);
+
+            Dictionary<string, string> headerRequest = new Dictionary<string, string>();
+            headerRequest.Add("accept", accept);
+            headerRequest.Add("Host", Config.HOST);
+            headerRequest.Add("signature", signature);
+
+            string url = Config.BASE_URL + uriPath;
+
+            Util.ExcuteGetMethodWithHeaders(url, headerRequest);
+        }
     }
 }

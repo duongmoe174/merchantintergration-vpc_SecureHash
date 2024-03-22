@@ -10,7 +10,7 @@ namespace CheckHash
     {
         static void Main(string[] args)
         {
-            VerifySign();
+            GetInstallmentByMerchantId();
         }
 
         public static void MakeInvoice()
@@ -58,6 +58,14 @@ namespace CheckHash
             string itaFeeAmount = "20000200";
 
             CreateInvoiceInstallment.MerchantSendRequetThemeITA(merchantId, merchantAccessCode, merchantHashCode, amount, cardList, itaTime, itaFeeAmount, itaBankSwiftCode);
+        }
+
+        public static void GetInstallmentByMerchantId()
+        {
+            string merchantId = Config.MERCHANT_INSTALLMENT_ID;
+            string merchantHashCode = Config.MERCHANT_INSTALLMENT_HASH_CODE;
+            string amount = "3000000";
+            CreateInvoiceInstallment.GetInstallment(amount, merchantId, merchantHashCode);
         }
 
         public static void QueryTransaction()
