@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"crypto/hmac"
 	"crypto/sha256"
 	"crypto/sha512"
@@ -9,6 +10,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"sort"
 	"strings"
 	"time"
@@ -197,4 +199,44 @@ func parseHexByte(s string) (byte, error) {
 		}
 	}
 	return c, nil
+}
+
+func sendHttpPostRequest(urlRequest string, merchantParam map[string]string) {
+	// Tạo dữ liệu để gửi
+	data := url.Values{}
+
+	for key, value := range merchantParam {
+		data.Set(key, value)
+	}
+
+	// Tạo HTTP client
+	client := &http.Client{}
+
+	// Tạo HTTP request
+	req, err := http.NewRequest("POST", urlRequest, bytes.NewBufferString(data.Encode()))
+	if err != nil {
+		fmt.Println("Error creating request:", err)
+		return
+	}
+
+	// Set header cho request
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+	// Gửi request
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Println("Error sending request:", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	// Đọc response
+	respBody, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response:", err)
+		return
+	}
+
+	// Hiển thị response
+	fmt.Println("Response:", string(respBody))
 }

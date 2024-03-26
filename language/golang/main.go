@@ -3,7 +3,7 @@ package main
 func main() {
 	LoadConfig()
 
-	verifySign()
+	quereTransaction()
 }
 
 func makeInvoice() {
@@ -51,6 +51,14 @@ func getInstallmentWithMerchantId() {
 	merchantHashCode := AppConfig.MerchantInstallmentHashCode
 	amount := "3000000"
 	getInstallment(amount, merchantId, merchantHashCode)
+}
+
+func quereTransaction() {
+	merchantId := AppConfig.MerchantPaynowId
+	merchantAccessCode := AppConfig.MerchantPaynowAccessCode
+	merchantHashCode := AppConfig.MerchantPaynowHashCode
+	merchTxnRef := "TEST_638466347228355308"
+	queryDRApi(merchantId, merchantAccessCode, merchantHashCode, merchTxnRef)
 }
 
 func verifySign() {
