@@ -1,0 +1,10 @@
+Config:
+  merchant_paynow_id: "DUONGTT"
+  merchant_paynow_access_code: "6BEB2546"
+  merchant_paynow_hash_code: "6D0870CDE5F24F34F3915FB0045120DB"
+  merchant_installment_id: "TESTTRAGOP"
+  merchant_installment_access_code: "D51C5CD6"
+  merchant_installment_hash_code: "EB1B7F75EBB2FAABD6763FC37A3628AF"
+  base_url: "https://mtf.onepay.vn"
+  url_prefix: "/paygate/vpcpay.op?"
+  host: "mtf.onepay.vn"
