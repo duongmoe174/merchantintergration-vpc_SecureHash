@@ -46,14 +46,14 @@ namespace AppCreateInvoiceToken
             Util.ExcuteGetMethod(requestsUrl);
         }
 
-        public static void MerchantSendRequetToPaymentWithToken(string merchantId, string merchantAccessCode, string merchantHashCode)
+        public static void MerchantSendRequetToPaymentWithToken(string merchantId, string merchantAccessCode, string merchantHashCode, string tokenNum, string tokenExp)
         {
             long ticks = DateTime.Now.Ticks;
             string vpcMerchantTxnRef = "TEST_" + ticks.ToString();
             Dictionary<string, string> merchantParams = new Dictionary<string, string>
             {
-                { "vpc_TokenNum", "5123451517076481" },
-                { "vpc_TokenExp", "1225" },
+                { "vpc_TokenNum", tokenNum },
+                { "vpc_TokenExp", tokenExp },
                 { "vpc_Customer_Id", "test" },
                 { "vpc_Version", "2" },
                 { "vpc_Currency", "VND" },

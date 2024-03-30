@@ -43,14 +43,14 @@ func createInvoiceCreateToken(merchantId string, merchantAccessCode string, merc
 	sendHttpGetRequest(requestUrl)
 }
 
-func createInvoiceAndPaymentWithToken(merchantId string, merchantAccessCode string, merchantHashCode string) {
+func createInvoiceAndPaymentWithToken(merchantId string, merchantAccessCode string, merchantHashCode string, tokenNum string, tokenExp string) {
 
 	time := time.Now().UnixNano()
 	vpcMerTxnRef := "TEST_" + fmt.Sprintf("%d", time)
 	merchantQueryMap := map[string]string{
 		"vpc_Customer_Id":    "test",
-		"vpc_TokenNum":       "5123451517076481",
-		"vpc_TokenExp":       "1225",
+		"vpc_TokenNum":       tokenNum,
+		"vpc_TokenExp":       tokenExp,
 		"vpc_Version":        "2",
 		"vpc_Currency":       "VND",
 		"vpc_Command":        "pay",

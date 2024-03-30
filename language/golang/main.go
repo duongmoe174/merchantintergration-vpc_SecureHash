@@ -3,7 +3,7 @@ package main
 func main() {
 	LoadConfig()
 
-	quereTransaction()
+	makeInvoice()
 }
 
 func makeInvoice() {
@@ -24,7 +24,9 @@ func makeInvoiceAndPaymentWithToken() {
 	merchantId := AppConfig.MerchantPaynowId
 	merchantAccessCode := AppConfig.MerchantPaynowAccessCode
 	merchantHashCode := AppConfig.MerchantPaynowHashCode
-	createInvoiceAndPaymentWithToken(merchantId, merchantAccessCode, merchantHashCode)
+	tokenNum := "5123451517076481"
+	tokenExp := "1225"
+	createInvoiceAndPaymentWithToken(merchantId, merchantAccessCode, merchantHashCode, tokenNum, tokenExp)
 }
 
 func makeInvoiceIntsallmentAtOnePaySite() {
