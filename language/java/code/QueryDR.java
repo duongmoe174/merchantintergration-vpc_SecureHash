@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class QueryDR {
-    protected void QueryDRApi(String merchantId, String merchantAccessCode, String merchantHashCode,
+    protected void queryDRApi(String merchantId, String merchantAccessCode, String merchantHashCode,
             String merchTxnRef) {
         try {
             Map<String, Object> param = new HashMap<>();

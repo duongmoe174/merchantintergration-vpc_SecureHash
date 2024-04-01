@@ -70,7 +70,7 @@ public class Main {
         String merchantAccessCode = Config.MERCHANT_PAYNOW_ACCESS_CODE;
         String merchantHashCode = Config.MERCHANT_PAYNOW_HASH_CODE;
         String merchTxnRef = "TEST_638466347228355308";
-        queryDR.QueryDRApi(merchantId, merchantAccessCode, merchantHashCode, merchTxnRef);
+        queryDR.queryDRApi(merchantId, merchantAccessCode, merchantHashCode, merchTxnRef);
     }
 
     private static void verifySign() {
