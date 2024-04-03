@@ -2,7 +2,7 @@ package code;
 
 public class Main {
     public static void main(String[] args) {
-        verifySign();
+        getInstallmentByMerchantId();
     }
 
     private static void makeInvoice() {
